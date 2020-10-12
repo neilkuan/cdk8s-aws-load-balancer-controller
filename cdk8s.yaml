@@ -1,0 +1,4 @@
+language: typescript
+app: node ./lib/integ.default.js
+imports:
+  - k8s
