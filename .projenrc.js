@@ -12,7 +12,7 @@ const project = new ConstructLibraryCdk8s({
   defaultReleaseBranch: 'main',
   releaseBranches: ['main'],
   devDependencies: {
-    'constructs': Semver.pinned('3.0.4')
+    'constructs': Semver.caret('3.0.4')
   },
   python: {
     distName: 'cdk8s-aws-alb-ingress-controller',
