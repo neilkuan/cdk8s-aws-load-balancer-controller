@@ -96,6 +96,7 @@ Array [
       "namespace": "kube-system",
     },
     "spec": Object {
+      "replicas": 0,
       "selector": Object {
         "matchLabels": Object {
           "app.kubernetes.io/name": "alb-ingress-controller",

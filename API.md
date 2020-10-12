@@ -43,6 +43,7 @@ new AlbIngressController(scope: Construct, id: string, options: AlbIngressContro
   * **image** (<code>string</code>)  Default image for alb-ingress-controller. __*Default*__: docker.io/amazon/aws-alb-ingress-controller:v1.1.9
   * **labels** (<code>Map<string, string></code>)  Extra labels to associate with resources. __*Default*__: none
   * **namespace** (<code>string</code>)  Default Namespace for alb-ingress-controller. __*Default*__: kube-system
+  * **replicas** (<code>number</code>)  Replicas for alb-ingress-controller. __*Default*__: 1
   * **serviceAccountName** (<code>string</code>)  Default Service Account Name for alb-ingress-controller. __*Default*__: alb-ingress-controller
 
 
@@ -72,6 +73,7 @@ Name | Type | Description
 **image**? | <code>string</code> | Default image for alb-ingress-controller.<br/>__*Default*__: docker.io/amazon/aws-alb-ingress-controller:v1.1.9
 **labels**? | <code>Map<string, string></code> | Extra labels to associate with resources.<br/>__*Default*__: none
 **namespace**? | <code>string</code> | Default Namespace for alb-ingress-controller.<br/>__*Default*__: kube-system
+**replicas**? | <code>number</code> | Replicas for alb-ingress-controller.<br/>__*Default*__: 1
 **serviceAccountName**? | <code>string</code> | Default Service Account Name for alb-ingress-controller.<br/>__*Default*__: alb-ingress-controller
 
 

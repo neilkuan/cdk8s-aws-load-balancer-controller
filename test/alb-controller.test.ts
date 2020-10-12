@@ -14,6 +14,7 @@ test('AlbIngressController', () => {
         value: '12345',
       },
     ],
+    replicas: 0,
   });
   expect(Testing.synth(chart)).toMatchSnapshot();
 });

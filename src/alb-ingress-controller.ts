@@ -55,6 +55,11 @@ export interface AlbIngressControllerOptions {
    * @default - None
    */
   readonly env?: EnvVar[];
+  /**
+   * Replicas for alb-ingress-controller.
+   * @default - 1
+   */
+  readonly replicas?: number;
 }
 /**
  * Generate alb-ingress-controller config yaml.
@@ -132,6 +137,7 @@ export class AlbIngressController extends Construct {
         namespace: options?.namespace ?? 'kube-system',
       },
       spec: {
+        replicas: options?.replicas ?? 1,
         selector: {
           matchLabels: {
             'app.kubernetes.io/name': 'alb-ingress-controller',

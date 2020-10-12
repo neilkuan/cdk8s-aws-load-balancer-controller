@@ -16,6 +16,7 @@ export class MyChart extends Chart {
           value: '12345',
         },
       ],
+      replicas: 0,
     });
   }
 }
