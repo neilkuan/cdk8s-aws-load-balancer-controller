@@ -179,9 +179,7 @@ export class AlbIngressController extends Construct {
   private argsFunc(args?: string[]):string[] {
     const defaultArgs = ['--ingress-class=alb', `--cluster-name=${this.clusterName}`];
     if (args) {
-      for (let i =0; i < args.length; i++) {
-        defaultArgs.push(args[i]);
-      }
+      args.forEach(e => defaultArgs.push(e));
     }
     return defaultArgs;
   }
