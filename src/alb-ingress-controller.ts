@@ -78,11 +78,17 @@ export class AlbIngressController extends Construct {
    * Kubernetes Deployment Name for alb-ingress-controller.
    */
   public readonly deploymentName: string;
+  /**
+   * Namespace for alb-ingress-controller.
+   * @default - kube-system
+   */
+  public readonly namespace: string ;
   constructor(scope: Construct, id: string, options: AlbIngressControllerOptions) {
     super(scope, id);
     this.serviceAccountName = options.serviceAccountName ?? 'alb-ingress-controller';
     this.deploymentName = 'alb-ingress-controller';
     this.clusterName = options.clusterName;
+    this.namespace = options?.namespace ?? 'kube-system';
     new k8s.ClusterRole(this, 'alb-ingress-controller-clusterole', {
       metadata: {
         labels: {
@@ -121,7 +127,7 @@ export class AlbIngressController extends Construct {
       subjects: [
         {
           kind: 'ServiceAccount',
-          namespace: options?.namespace ?? 'kube-system',
+          namespace: this.namespace,
           name: this.serviceAccountName,
         },
       ],
@@ -130,7 +136,7 @@ export class AlbIngressController extends Construct {
     new k8s.ServiceAccount(this, 'alb-ingress-controller-sa', {
       metadata: {
         name: this.serviceAccountName,
-        namespace: options?.namespace ?? 'kube-system',
+        namespace: this.namespace,
       },
     });
     new k8s.Deployment(this, 'alb-ingress-controller-deployment', {
@@ -139,7 +145,7 @@ export class AlbIngressController extends Construct {
           'app.kubernetes.io/name': 'alb-ingress-controller',
           ...options.labels,
         },
-        namespace: options?.namespace ?? 'kube-system',
+        namespace: this.namespace,
         name: this.deploymentName,
       },
       spec: {

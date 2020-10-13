@@ -55,6 +55,7 @@ Name | Type | Description
 -----|------|-------------
 **clusterName** | <code>string</code> | Kubernetes Cluster Name for alb-ingress-controller.
 **deploymentName** | <code>string</code> | Kubernetes Deployment Name for alb-ingress-controller.
+**namespace** | <code>string</code> | Namespace for alb-ingress-controller.
 **serviceAccountName** | <code>string</code> | Service Account Name for alb-ingress-controller.
 
 
