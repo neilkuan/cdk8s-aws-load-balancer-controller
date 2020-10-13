@@ -92,7 +92,7 @@ Array [
       "labels": Object {
         "app.kubernetes.io/name": "alb-ingress-controller",
       },
-      "name": "albingresscontroller-alb-ingress-controller-deployment-397ac89e",
+      "name": "alb-ingress-controller",
       "namespace": "kube-system",
     },
     "spec": Object {

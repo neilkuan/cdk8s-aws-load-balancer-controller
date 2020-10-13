@@ -14,6 +14,10 @@ const project = new ConstructLibraryCdk8s({
   devDependencies: {
     'constructs': Semver.caret('3.0.4')
   },
+  catalog: {
+    twitter: 'neil_kuan',
+    announce: true,
+  },
   python: {
     distName: 'cdk8s-aws-alb-ingress-controller',
     module: 'cdk8s_aws_alb_ingress_controller',

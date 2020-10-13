@@ -164,5 +164,9 @@
       "outDir": "lib",
       "rootDir": "src"
     }
+  },
+  "awscdkio": {
+    "twitter": "neil_kuan",
+    "announce": true
   }
 }
