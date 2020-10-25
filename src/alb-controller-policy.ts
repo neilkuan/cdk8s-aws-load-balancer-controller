@@ -276,7 +276,7 @@ const awsLoadBalancerControllerPolicyV2 = [
  * awsLoadBalancePolicy class ,help you add policy to your Iam Role for service account.
  */
 export class AwsLoadBalancePolicy {
-  public static addPolicy(version: string, role: iam.Role) :any {
+  public static addPolicy(version: string, role: any) :any {
     if (version == 'v1') {
       role.addToPolicy(new iam.PolicyStatement( awsLoadBalancerControllerPolicyV1 ));
       return role;

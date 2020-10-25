@@ -92,11 +92,11 @@ new AwsLoadBalancePolicy()
 
 
 ```ts
-static addPolicy(version: string, role: Role): any
+static addPolicy(version: string, role: any): any
 ```
 
 * **version** (<code>string</code>)  *No description*
-* **role** (<code>[Role](#aws-cdk-aws-iam-role)</code>)  *No description*
+* **role** (<code>any</code>)  *No description*
 
 __Returns__:
 * <code>any</code>
