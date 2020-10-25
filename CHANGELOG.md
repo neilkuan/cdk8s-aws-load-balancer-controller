@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/compare/v0.0.12...v0.0.15) (2020-10-25)
+
+
+### Features
+
+* AwsLoadBalancePolicy class ([8f8ae6a](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/commit/8f8ae6a9947c371ebb90db957ce94899cf81c5f9))
+
 ### 0.0.14 (2020-10-22)
 
 ### 0.0.13 (2020-10-21)
