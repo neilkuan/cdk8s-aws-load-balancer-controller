@@ -1,6 +1,6 @@
 const { ConstructLibraryCdk8s, Semver } = require('projen');
 const PROJECT_DESCRIPTION = 'cdk8s-aws-alb-ingress-controller is an CDK8S construct library that provides AWS Alb Ingress Controller Deplyment Configure.';
-
+const CDK_VERSION = '1.70.0';
 const project = new ConstructLibraryCdk8s({
   description: PROJECT_DESCRIPTION,
   authorAddress: "guan840912@gmail.com",
@@ -11,9 +11,6 @@ const project = new ConstructLibraryCdk8s({
   keywords: ['aws', 'cdk8s', 'alb-ingress-controller'],
   defaultReleaseBranch: 'main',
   releaseBranches: ['main'],
-  devDependencies: {
-    'constructs': Semver.caret('3.0.4')
-  },
   catalog: {
     twitter: 'neil_kuan',
     announce: true,
@@ -24,7 +21,9 @@ const project = new ConstructLibraryCdk8s({
   },
 });
 project.addPeerDependencies({
-  'constructs': Semver.caret('3.0.4'),
+  'constructs': Semver.caret('3.1.3'),
+  '@aws-cdk/aws-iam': Semver.caret(CDK_VERSION),
+  '@aws-cdk/core': Semver.caret(CDK_VERSION),
 });
 
 const common_exclude = ['cdk.out', 'cdk.context.json', 'image', 'yarn-error.log','coverage'];
