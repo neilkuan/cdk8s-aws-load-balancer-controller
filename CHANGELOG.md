@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.23](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/compare/v0.0.22...v0.0.23) (2020-10-31)
+
+
+### Features
+
+* update aws-load-balance iam policy v2 ([94028c1](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/commit/94028c15bce6cbcf6bfdc2095bc262b4a40a8298))
+
 ### 0.0.22 (2020-10-30)
 
 ### 0.0.21 (2020-10-29)
