@@ -228,8 +228,9 @@ const awsLoadBalancerControllerPolicyV2 = [
       'elasticloadbalancing:RemoveTags',
     ],
     Resource: [
-      'arn:aws:elasticloadbalancing:*:*:loadbalancer/*',
-      'arn:aws:elasticloadbalancing:*:*:targetgroup*',
+      'arn:aws:elasticloadbalancing:*:*:targetgroup/*/*',
+      'arn:aws:elasticloadbalancing:*:*:loadbalancer/net/*/*',
+      'arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*/*',
     ],
     Condition: {
       Null: {
