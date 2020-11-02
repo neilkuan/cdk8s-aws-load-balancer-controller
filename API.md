@@ -169,12 +169,12 @@ new CertManager()
 ### Methods
 
 
-#### certManagerConfig() <a id="cdk8s-aws-alb-ingress-controller-certmanager-certmanagerconfig"></a>
+#### *static* certManagerConfig() <a id="cdk8s-aws-alb-ingress-controller-certmanager-certmanagerconfig"></a>
 
 
 
 ```ts
-certManagerConfig(): any
+static certManagerConfig(): any
 ```
 
 
