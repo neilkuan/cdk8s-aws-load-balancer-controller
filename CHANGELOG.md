@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.24](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/compare/v0.0.23...v0.0.24) (2020-11-02)
+
+
+### Features
+
+* cert-manager & aws-load-balancer-v2 ([3ba6d9d](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/commit/3ba6d9d7c1c0a762a42789d7ea01c62634a0abfc))
+
 ### [0.0.23](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/compare/v0.0.22...v0.0.23) (2020-10-31)
 
 
