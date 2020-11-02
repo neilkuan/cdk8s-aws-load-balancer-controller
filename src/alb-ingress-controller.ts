@@ -1,23 +1,6 @@
 import { Construct } from 'constructs';
+import { EnvVar } from './envvar-ins';
 import * as k8s from './imports/k8s';
-
-
-export interface EnvVar {
-  /**
-   * Name of the environment variable. Must be a C_IDENTIFIER.
-   *
-   * @schema io.k8s.api.core.v1.EnvVar#name
-   */
-  readonly name: string;
-
-  /**
-   * Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
-   *
-   * @default .
-   * @schema io.k8s.api.core.v1.EnvVar#value
-   */
-  readonly value?: string;
-}
 
 export interface AlbIngressControllerOptions {
   /**
@@ -88,7 +71,7 @@ export class AlbIngressController extends Construct {
     this.serviceAccountName = options.serviceAccountName ?? 'alb-ingress-controller';
     this.deploymentName = 'alb-ingress-controller';
     this.clusterName = options.clusterName;
-    this.namespace = options?.namespace ?? 'kube-system';
+    this.namespace = options.namespace ?? 'kube-system';
     new k8s.ClusterRole(this, 'alb-ingress-controller-clusterole', {
       metadata: {
         labels: {

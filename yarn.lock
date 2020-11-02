@@ -636,6 +636,11 @@
     jest-diff "^26.0.0"
     pretty-format "^26.0.0"
 
+"@types/js-yaml@^3.12.5":
+  version "3.12.5"
+  resolved "https://registry.yarnpkg.com/@types/js-yaml/-/js-yaml-3.12.5.tgz#136d5e6a57a931e1cce6f9d8126aa98a9c92a6bb"
+  integrity sha512-JCcp6J0GV66Y4ZMDAQCXot4xprYB+Zfd3meK9+INSJeVZwJmHAW30BBEEkPzXswMXuiyReUGOP3GxrADc9wPww==
+
 "@types/json-schema@^7.0.3":
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
@@ -1215,17 +1220,17 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cdk8s-plus@0.32.0:
-  version "0.32.0"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus/-/cdk8s-plus-0.32.0.tgz#876f3f1fdea69b91e2e2e8b3e5ca702da58ce366"
-  integrity sha512-nHnwOrzyvuGPRLd+5sxtOH/ejix9gTgN1VxuuDjVXQNqPsVX6YCEBPv9/g+Ureu89EmwYXkpYlVRvS/j0MDSTQ==
+cdk8s-plus@0.33.0:
+  version "0.33.0"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus/-/cdk8s-plus-0.33.0.tgz#b2dc56b417ab8261cd4a796f080f04dcd4fe0f66"
+  integrity sha512-CnvuNTQS9DH1MYEDizUObMZ3PG7BqshJaG7kkuThmwNgC8QkVGmOkLC9YP8UBDr1mKW+zfV12HCIw93SteRr3g==
   dependencies:
     minimatch "^3.0.4"
 
-cdk8s@0.32.0:
-  version "0.32.0"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-0.32.0.tgz#d977e977c1eee589d74a302675aa0f296cbc19d8"
-  integrity sha512-FUIULXEKPjXA+9DLzCUpIcOpBrF2B3Dl0jxxjPbwScrTnVqAY2+WetUbcnpogsVCbGl5gWTdO3nI2eBEaST6Bg==
+cdk8s@0.33.0:
+  version "0.33.0"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-0.33.0.tgz#503b60b98de5fe82b22ac5dee2c351a4ba102deb"
+  integrity sha512-Yoo6RZWZPk6K2JZLiJA22faNVWqTE6Nv+VNgmTFTq4AC8c+eCvq6/xHKcpn78HhTLEPBmczaja7q2MiRc9LTBQ==
   dependencies:
     follow-redirects "^1.11.0"
     json-stable-stringify "^1.0.1"
@@ -3564,7 +3569,7 @@ js-tokens@^4.0.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-js-yaml@^3.13.1:
+js-yaml@^3.13.1, js-yaml@^3.14.0:
   version "3.14.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.0.tgz#a7a34170f26a21bb162424d8adacb4113a69e482"
   integrity sha512-/4IbIeHcD9VMHFqDR/gQ7EdZdLimOvW2DdcxFjdyyZ9NsbS+ccrXqVWDtab/lRl5AlUqmpBx8EhPaWR+OtY17A==
