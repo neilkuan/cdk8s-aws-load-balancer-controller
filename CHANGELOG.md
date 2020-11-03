@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.26](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/compare/v0.0.25...v0.0.26) (2020-11-03)
+
+
+### Bug Fixes
+
+* **cert:** fix cert path not found ([3151e0e](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/commit/3151e0e6f436cf5731ee8a032f1bc6e3367391ff))
+
 ### [0.0.25](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/compare/v0.0.24...v0.0.25) (2020-11-02)
 
 
