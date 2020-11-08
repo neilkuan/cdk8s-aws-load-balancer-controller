@@ -249,8 +249,6 @@ const awsLoadBalancerControllerPolicyV2 = [
       'elasticloadbalancing:DeleteLoadBalancer',
       'elasticloadbalancing:ModifyTargetGroup',
       'elasticloadbalancing:ModifyTargetGroupAttributes',
-      'elasticloadbalancing:RegisterTargets',
-      'elasticloadbalancing:DeregisterTargets',
       'elasticloadbalancing:DeleteTargetGroup',
     ],
     Resource: '*',
@@ -259,6 +257,14 @@ const awsLoadBalancerControllerPolicyV2 = [
         'aws:ResourceTag/elbv2.k8s.aws/cluster': 'false',
       },
     },
+  },
+  {
+    Effect: 'Allow',
+    Action: [
+      'elasticloadbalancing:RegisterTargets',
+      'elasticloadbalancing:DeregisterTargets',
+    ],
+    Resource: 'arn:aws:elasticloadbalancing:*:*:targetgroup/*/*',
   },
   {
     Effect: 'Allow',
