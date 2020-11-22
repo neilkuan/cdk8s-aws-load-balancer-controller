@@ -277,6 +277,7 @@ export class AwsLoadBalancerController extends Construct {
     });
     new cdk8s.Helm(this, 'helmawsLoadBalancerController', {
       chart: 'eks/aws-load-balancer-controller',
+      releaseName: 'aws-load-balancer-controller',
       values: {
         clusterName: options.clusterName,
       },
