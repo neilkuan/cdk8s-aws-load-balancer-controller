@@ -17,7 +17,7 @@ const project = new ConstructLibrary({
   dependabot: false,
   catalog: {
     twitter: 'neil_kuan',
-    announce: true,
+    announce: false,
   },
   python: {
     distName: 'cdk8s-aws-alb-ingress-controller',

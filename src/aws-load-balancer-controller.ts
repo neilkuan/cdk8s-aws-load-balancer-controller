@@ -28,7 +28,7 @@ export class AwsLoadBalancerController extends Construct {
   public readonly deploymentName: string;
   /**
    * Namespace for aws-load-balancer-controller.
-   * @default - kube-system
+   * @default - default
    */
   public readonly namespace: string ;
   constructor(scope: Construct, id: string, options: AwsLoadBalancerControllerOptions) {
@@ -36,7 +36,7 @@ export class AwsLoadBalancerController extends Construct {
     this.serviceAccountName = 'aws-load-balancer-controller';
     this.deploymentName = 'aws-load-balancer-controller';
     this.clusterName = options.clusterName;
-    this.namespace = 'kube-system';
+    this.namespace = 'default';
 
     new cdk8s.ApiObject(this, 'aws-load-balancer-controller-crd', {
       apiVersion: 'apiextensions.k8s.io/v1beta1',
