@@ -128,13 +128,6 @@ new AwsLoadBalancerController(scope: Construct, id: string, options: AwsLoadBala
 * **id** (<code>string</code>)  *No description*
 * **options** (<code>[AwsLoadBalancerControllerOptions](#cdk8s-aws-alb-ingress-controller-awsloadbalancercontrolleroptions)</code>)  *No description*
   * **clusterName** (<code>string</code>)  Kubernetes Cluster Name for aws-load-balancer-controller. 
-  * **args** (<code>Array<string></code>)  Another Args for aws-load-balancer-controller. __*Default*__: None
-  * **env** (<code>Array<[EnvVar](#cdk8s-aws-alb-ingress-controller-envvar)></code>)  Another Args for aws-load-balancer-controller. __*Default*__: None
-  * **image** (<code>string</code>)  Default image for aws-load-balancer-controller. __*Default*__: docker.io/amazon/aws-aws-load-balancer-controller:v1.1.9
-  * **labels** (<code>Map<string, string></code>)  Extra labels to associate with resources. __*Default*__: none
-  * **namespace** (<code>string</code>)  Default Namespace for aws-load-balancer-controller. __*Default*__: kube-system
-  * **replicas** (<code>number</code>)  Replicas for aws-load-balancer-controller. __*Default*__: 1
-  * **serviceAccountName** (<code>string</code>)  Default Service Account Name for aws-load-balancer-controller. __*Default*__: aws-load-balancer-controller
 
 
 
@@ -213,13 +206,6 @@ Name | Type | Description
 Name | Type | Description 
 -----|------|-------------
 **clusterName** | <code>string</code> | Kubernetes Cluster Name for aws-load-balancer-controller.
-**args**? | <code>Array<string></code> | Another Args for aws-load-balancer-controller.<br/>__*Default*__: None
-**env**? | <code>Array<[EnvVar](#cdk8s-aws-alb-ingress-controller-envvar)></code> | Another Args for aws-load-balancer-controller.<br/>__*Default*__: None
-**image**? | <code>string</code> | Default image for aws-load-balancer-controller.<br/>__*Default*__: docker.io/amazon/aws-aws-load-balancer-controller:v1.1.9
-**labels**? | <code>Map<string, string></code> | Extra labels to associate with resources.<br/>__*Default*__: none
-**namespace**? | <code>string</code> | Default Namespace for aws-load-balancer-controller.<br/>__*Default*__: kube-system
-**replicas**? | <code>number</code> | Replicas for aws-load-balancer-controller.<br/>__*Default*__: 1
-**serviceAccountName**? | <code>string</code> | Default Service Account Name for aws-load-balancer-controller.<br/>__*Default*__: aws-load-balancer-controller
 
 
 

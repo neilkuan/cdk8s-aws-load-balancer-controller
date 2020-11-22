@@ -13,15 +13,15 @@
     "no-changes": "(git log --oneline -1 | grep -q \"chore(release):\") && echo \"No changes to release.\"",
     "bump": "yarn run --silent no-changes || standard-version",
     "release": "yarn run --silent no-changes || (yarn run bump && git push --follow-tags origin main)",
+    "test": "rm -fr lib/ && jest --passWithNoTests --updateSnapshot && yarn run eslint",
+    "test:watch": "jest --watch",
+    "test:update": "jest --updateSnapshot",
     "projen:upgrade": "yarn upgrade -L projen && CI=\"\" yarn projen",
     "compile": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies && jsii-docgen",
     "watch": "jsii -w --silence-warnings=reserved-word --no-fix-peer-dependencies",
     "build": "yarn run test && yarn run compile && yarn run package",
     "package": "jsii-pacmak",
-    "test": "rm -fr lib/ && jest --passWithNoTests --updateSnapshot && yarn run eslint",
-    "test:watch": "jest --watch",
-    "test:update": "jest --updateSnapshot",
-    "eslint": "eslint --ext .ts --fix src test",
+    "eslint": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test",
     "compat": "npx jsii-diff npm:$(node -p \"require('./package.json').name\") -k --ignore-file .compatignore || (echo \"\nUNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .compatignore to skip.\n\" && exit 1)",
     "docgen": "jsii-docgen"
   },
@@ -31,8 +31,8 @@
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/aws-iam": "1.71.0",
-    "@aws-cdk/core": "1.71.0",
+    "@aws-cdk/aws-iam": "1.74.0",
+    "@aws-cdk/core": "1.74.0",
     "@types/jest": "^26.0.7",
     "@types/js-yaml": "^3.12.5",
     "@types/node": "^10.17.0",
@@ -46,6 +46,7 @@
     "eslint-import-resolver-typescript": "^2.3.0",
     "eslint-plugin-import": "^2.22.1",
     "jest": "^26.4.2",
+    "jest-junit": "^12",
     "js-yaml": "^3.14.0",
     "jsii": "^1.11.0",
     "jsii-diff": "^1.11.0",
@@ -53,14 +54,14 @@
     "jsii-pacmak": "^1.11.0",
     "jsii-release": "^0.1.6",
     "json-schema": "^0.2.5",
-    "projen": "^0.3.138",
+    "projen": "^0.3.173",
     "standard-version": "^9.0.0",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
-    "@aws-cdk/aws-iam": "^1.71.0",
-    "@aws-cdk/core": "^1.71.0",
+    "@aws-cdk/aws-iam": "^1.74.0",
+    "@aws-cdk/core": "^1.74.0",
     "cdk8s": "^0.33.0",
     "cdk8s-plus": "^0.33.0",
     "constructs": "^3.2.7"
@@ -79,9 +80,6 @@
     "cdk",
     "cdk8s"
   ],
-  "engines": {
-    "node": ">= 10.17.0"
-  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "start": {
@@ -103,6 +101,16 @@
       "desc": "Bumps version & push to main",
       "command": "yarn run release",
       "category": 2
+    },
+    "test": {
+      "desc": "Run tests",
+      "command": "yarn run test",
+      "category": 1
+    },
+    "test:watch": {
+      "desc": "Run jest in watch mode",
+      "command": "yarn run test:watch",
+      "category": 1
     },
     "projen:upgrade": {
       "desc": "upgrades projen to the latest version",
@@ -129,16 +137,6 @@
       "command": "yarn run package",
       "category": 2
     },
-    "test": {
-      "desc": "Run tests",
-      "command": "yarn run test",
-      "category": 1
-    },
-    "test:watch": {
-      "desc": "Run jest in watch mode",
-      "command": "yarn run test:watch",
-      "category": 1
-    },
     "eslint": {
       "desc": "Runs eslint against the codebase",
       "command": "yarn run eslint",
@@ -156,27 +154,37 @@
     }
   },
   "version": "0.0.27",
-  "types": "lib/index.d.ts",
   "jest": {
     "clearMocks": true,
     "collectCoverage": true,
+    "coverageDirectory": "coverage",
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ],
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
-    "preset": "ts-jest",
     "testMatch": [
       "**/__tests__/**/*.ts?(x)",
       "**/?(*.)+(spec|test).ts?(x)"
     ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "outputDirectory": "test-reports"
+        }
+      ]
+    ],
+    "preset": "ts-jest",
     "globals": {
       "ts-jest": {
         "tsconfig": "tsconfig.jest.json"
       }
     }
   },
+  "types": "lib/index.d.ts",
   "stability": "stable",
   "jsii": {
     "outdir": "dist",

@@ -5,8 +5,8 @@ import { AlbIngressController, AwsLoadBalancerController } from './index';
 export class MyChart extends Chart {
   constructor(scope: Construct, name: string) {
     super(scope, name);
-    new AlbIngressController(this, 'albingresscntroller', {
-      clusterName: 'EKScluster',
+    new AlbIngressController(this, 'AlbIngressController', {
+      clusterName: 'TestClusterName',
       args: [
         '--test=123',
       ],
@@ -18,22 +18,11 @@ export class MyChart extends Chart {
       ],
       replicas: 0,
     });
-  }
-}
-
-export class MyChartv2 extends Chart {
-  constructor(scope: Construct, name: string) {
-    super(scope, name);
-    new AwsLoadBalancerController(this, 'awsloadbalancercontroller', {
-      clusterName: 'pipelineDemo',
-      args: [
-        '--test=123',
-      ],
-      replicas: 0,
+    new AwsLoadBalancerController(this, 'AwsLoadController', {
+      clusterName: 'TestClusterName',
     });
   }
 }
 const app = new App();
-new MyChart(app, 'test-v1');
-new MyChartv2(app, 'test-v2');
+new MyChart(app, 'test');
 app.synth();
