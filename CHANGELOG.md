@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/compare/v0.0.31...v1.0.0) (2020-11-23)
+
+
+### Features
+
+* awsloadbalancecontroller V2 ([91d442a](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/commit/91d442aa5dc8d5b66ac6669fe87e78519acdb443))
+
 ### [0.0.31](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/compare/v0.0.30...v0.0.31) (2020-11-23)
 
 ### [0.0.30](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/compare/v0.0.29...v0.0.30) (2020-11-22)
