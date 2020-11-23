@@ -128,6 +128,7 @@ new AwsLoadBalancerController(scope: Construct, id: string, options: AwsLoadBala
 * **id** (<code>string</code>)  *No description*
 * **options** (<code>[AwsLoadBalancerControllerOptions](#cdk8s-aws-alb-ingress-controller-awsloadbalancercontrolleroptions)</code>)  *No description*
   * **clusterName** (<code>string</code>)  Kubernetes Cluster Name for aws-load-balancer-controller. 
+  * **createServiceAccount** (<code>boolean</code>)  service account for aws-load-balancer-controller. __*Default*__: true
 
 
 
@@ -206,6 +207,7 @@ Name | Type | Description
 Name | Type | Description 
 -----|------|-------------
 **clusterName** | <code>string</code> | Kubernetes Cluster Name for aws-load-balancer-controller.
+**createServiceAccount**? | <code>boolean</code> | service account for aws-load-balancer-controller.<br/>__*Default*__: true
 
 
 

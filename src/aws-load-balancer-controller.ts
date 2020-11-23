@@ -8,6 +8,13 @@ export interface AwsLoadBalancerControllerOptions {
    * @default - None
    */
   readonly clusterName: string ;
+
+  /**
+   * service account for aws-load-balancer-controller.
+   *
+   * @default - true
+   */
+  readonly createServiceAccount?: boolean;
 }
 /**
  * Generate aws-load-balancer-controller config yaml.
@@ -280,6 +287,10 @@ export class AwsLoadBalancerController extends Construct {
       releaseName: 'aws-load-balancer-controller',
       values: {
         clusterName: options.clusterName,
+        serviceAccount: {
+          create: options.createServiceAccount ?? true,
+          name: this.serviceAccountName,
+        },
       },
     });
   }
