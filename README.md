@@ -12,7 +12,7 @@
 Basic implementation of a [aws alb ingress controller](https://github.com/kubernetes-sigs/aws-alb-ingress-controller) construct for cdk8s. Contributions are welcome!
 
 ## Usage
-
+### AWS Load Balance Controller V1
 ```ts
 import { App, Chart } from 'cdk8s';
 import { Construct } from 'constructs';
@@ -30,6 +30,36 @@ const app = new App();
 new MyChart(app, 'testcdk8s');
 app.synth();
 ```
+
+### AWS Load Balance Controller V2
+#### only support install in default namespace now!!!
+```ts
+import { App, Chart } from 'cdk8s';
+import { AwsLoadBalancerController } from 'cdk8s-aws-alb-ingress-controller';
+import * as constructs from 'constructs';
+
+export interface MyChartProps {
+  readonly clusterName: string;
+}
+
+export class MyChart extends Chart {
+  readonly deploymentName: string;
+  readonly deploymentNameSpace: string;
+  constructor(scope: Construct, name: string, props: MyChartProps) {
+    super(scope, name);
+    const alb = new AwsLoadBalancerController(this, 'alb', {
+      clusterName: props.clusterName,
+      createServiceAccount: false,
+    });
+    this.deploymentName = alb.deploymentName;
+    this.deploymentNameSpace = alb.namespace;
+  }
+}
+const app = new App();
+new MyChart(app, 'testcdk8s');
+app.synth();
+```
+
 
 # Featrue For Add IAM Policy.
 - For IRSA add IAM Policy version 1. 
@@ -62,12 +92,12 @@ import * as eks from '@aws-cdk/aws-eks';
       version: eks.KubernetesVersion.V1_18,
     });
 
-    const albServiceAccount = cluster.addServiceAccount('alb-ingress-controller', {
-      name: 'alb-ingress-controller',
-      namespace: 'kube-system',
+    const sa = new eks.ServiceAccount(this, 'albserviceaccount', {
+      cluster: cluster,
+      name: 'aws-load-balancer-controller',
     });
-    // will help you add policy to IAM Role .
-    AwsLoadBalancePolicy.addPolicy(VersionsLists.AWS_LOAD_BALANCER_CONTROLLER_POLICY_V2, albServiceAccount);
+    AwsLoadBalancePolicy.addPolicy(VersionsLists.AWS_LOAD_BALANCER_CONTROLLER_POLICY_V2, sa );
+
 ```
 
 Also can see [example repo](https://github.com/guan840912/cdk8s-cdk-example)
