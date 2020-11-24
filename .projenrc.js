@@ -1,5 +1,5 @@
 const { ConstructLibrary } = require('projen');
-const PROJECT_DESCRIPTION = 'cdk8s-aws-alb-ingress-controller is an CDK8S construct library that provides AWS Alb Ingress Controller Deplyment Configure.';
+const PROJECT_DESCRIPTION = 'cdk8s-aws-load-balancer-controller is an CDK8S construct library that provides AWS Alb Load Balancer Controller Configure.';
 const CDK_VERSION = '1.74.0';
 const CDK8S_VERSION = '0.33.0';
 const CONSTRCUTS_VERSION = '3.2.7';
@@ -8,20 +8,20 @@ const project = new ConstructLibrary({
   authorAddress: "guan840912@gmail.com",
   authorName: "Neil Kuan",
   //cdk8sVersion: "0.30.0",
-  name: "cdk8s-aws-alb-ingress-controller",
-  repository: "https://github.com/guan840912/cdk8s-aws-alb-ingress-controller.git",
-  keywords: ['aws', 'cdk8s', 'alb-ingress-controller'],
+  name: "cdk8s-aws-load-balancer-controller",
+  repository: "https://github.com/guan840912/cdk8s-aws-load-balancer-controller.git",
+  keywords: ['aws', 'cdk8s', 'aws-load-balancer-controller'],
   defaultReleaseBranch: 'main',
   releaseBranches: ['main'],
   //compat: true,
   dependabot: false,
   catalog: {
     twitter: 'neil_kuan',
-    announce: false,
+    announce: true,
   },
   python: {
-    distName: 'cdk8s-aws-alb-ingress-controller',
-    module: 'cdk8s_aws_alb_ingress_controller',
+    distName: 'cdk8s-aws-load-balancer-controller',
+    module: 'cdk8s_aws_load_balancer_controller',
   },
   devDeps: [
     `cdk8s@^${CDK8S_VERSION}`,

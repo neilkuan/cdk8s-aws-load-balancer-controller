@@ -1,22 +1,24 @@
-[![NPM version](https://badge.fury.io/js/cdk8s-aws-alb-ingress-controller.svg)](https://badge.fury.io/js/cdk8s-aws-alb-ingress-controller)
-[![PyPI version](https://badge.fury.io/py/cdk8s-aws-alb-ingress-controller.svg)](https://badge.fury.io/py/cdk8s-aws-alb-ingress-controller)
-![Release](https://github.com/guan840912/cdk8s-aws-alb-ingress-controller/workflows/Release/badge.svg)
+[![NPM version](https://badge.fury.io/js/cdk8s-aws-load-balancer-controller.svg)](https://badge.fury.io/js/cdk8s-aws-load-balancer-controller)
+[![PyPI version](https://badge.fury.io/py/cdk8s-aws-load-balancer-controller.svg)](https://badge.fury.io/py/cdk8s-aws-load-balancer-controller)
+![Release](https://github.com/guan840912/cdk8s-aws-load-balancer-controller/workflows/Release/badge.svg)
 
 ![Downloads](https://img.shields.io/badge/-DOWNLOADS:-brightgreen?color=gray)
-![npm](https://img.shields.io/npm/dt/cdk8s-aws-alb-ingress-controller?label=npm&color=orange)
-![PyPI](https://img.shields.io/pypi/dm/cdk8s-aws-alb-ingress-controller?label=pypi&color=blue)
+![npm](https://img.shields.io/npm/dt/cdk8s-aws-load-balancer-controller?label=npm&color=orange)
+![PyPI](https://img.shields.io/pypi/dm/cdk8s-aws-load-balancer-controller?label=pypi&color=blue)
 
-# cdk8s-aws-alb-ingress-controller
-> [aws alb ingress controller](https://github.com/kubernetes-sigs/aws-alb-ingress-controller) constructs for cdk8s
+# cdk8s-aws-load-balancer-controller
+> [cdk8s aws load balancer controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller) constructs for cdk8s
 
-Basic implementation of a [aws alb ingress controller](https://github.com/kubernetes-sigs/aws-alb-ingress-controller) construct for cdk8s. Contributions are welcome!
+This project was formerly known as "CDK AWS ALB Ingress Controller", I just rename it to be "CDK AWS Load Balancer Controller".
+
+Basic implementation of a [aws load balancer controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller) construct for cdk8s. Contributions are welcome!
 
 ## Usage
 ### AWS Load Balance Controller V1
 ```ts
 import { App, Chart } from 'cdk8s';
 import { Construct } from 'constructs';
-import { AlbIngressController } from 'cdk8s-aws-alb-ingress-controller';
+import { AlbIngressController } from 'cdk8s-aws-load-balancer-controller';
 
 export class MyChart extends Chart {
   constructor(scope: Construct, name: string) {
@@ -35,7 +37,7 @@ app.synth();
 #### only support install in default namespace now!!!
 ```ts
 import { App, Chart } from 'cdk8s';
-import { AwsLoadBalancerController } from 'cdk8s-aws-alb-ingress-controller';
+import { AwsLoadBalancerController } from 'cdk8s-aws-load-balancer-controller';
 import * as constructs from 'constructs';
 
 export interface MyChartProps {
@@ -65,7 +67,7 @@ app.synth();
 - For IRSA add IAM Policy version 1. 
 ```ts
 // CDK APP like eks_cluster.ts
-import { AwsLoadBalancePolicy, VersionsLists } from 'cdk8s-aws-alb-ingress-controller';
+import { AwsLoadBalancePolicy, VersionsLists } from 'cdk8s-aws-load-balancer-controller';
 import * as eks from '@aws-cdk/aws-eks';
     const cluster = new eks.Cluster(this, 'MyK8SCluster', {
       defaultCapacity: 0,
@@ -84,7 +86,7 @@ import * as eks from '@aws-cdk/aws-eks';
 - For IRSA add IAM Policy version 2. 
 ```ts
 // CDK APP like eks_cluster.ts
-import { AwsLoadBalancePolicy, VersionsLists } from 'cdk8s-aws-alb-ingress-controller';
+import { AwsLoadBalancePolicy, VersionsLists } from 'cdk8s-aws-load-balancer-controller';
 import * as eks from '@aws-cdk/aws-eks';
     const cluster = new eks.Cluster(this, 'MyK8SCluster', {
       defaultCapacity: 0,
