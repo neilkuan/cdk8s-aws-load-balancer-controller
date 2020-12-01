@@ -4693,10 +4693,10 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.3.178:
-  version "0.3.178"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.3.178.tgz#9deca24b579c5b52b16ae6ad66b286e466012c43"
-  integrity sha512-e80c1KOu0cSrB14Zis6azdtTdDfbIp+Nf9Fi8nwk9yLGhzXC7WZroN+W29XRIafZfe0Rk8Cp4Z0ikZ0O4RM4bw==
+projen@^0.5.8:
+  version "0.5.8"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.5.8.tgz#76cadb623cca7b4026cbb1bfc0edc5c7bd1fc08d"
+  integrity sha512-iAzwVZwf7SlPeSOQiYwO0Idx4vv7JMFtX7odxlRAykl8lLVf0h3qmHOpYPzHzGFgCp5cKlhfn888BqUNYyWQpw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     chalk "^4.1.0"
@@ -4706,7 +4706,7 @@ projen@^0.3.178:
     inquirer "^7.3.3"
     semver "^7.3.2"
     yaml "^1.10.0"
-    yargs "^16.0.3"
+    yargs "^16.1.1"
 
 prompts@^2.0.1:
   version "2.4.0"
@@ -6129,7 +6129,7 @@ y18n@^4.0.0:
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
   integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
 
-y18n@^5.0.2:
+y18n@^5.0.2, y18n@^5.0.5:
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-5.0.5.tgz#8769ec08d03b1ea2df2500acef561743bbb9ab18"
   integrity sha512-hsRUr4FFrvhhRH12wOdfs38Gy7k2FFzB9qgN9v3aLykRq0dRcdcpz5C9FxdS2NuhOrI/628b/KSTJ3rwHysYSg==
@@ -6174,7 +6174,7 @@ yargs@^15.3.1, yargs@^15.4.1:
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
 
-yargs@^16.0.3, yargs@^16.1.0:
+yargs@^16.1.0:
   version "16.1.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.1.0.tgz#fc333fe4791660eace5a894b39d42f851cd48f2a"
   integrity sha512-upWFJOmDdHN0syLuESuvXDmrRcWd1QafJolHskzaw79uZa7/x53gxQKiR07W59GWY1tFhhU/Th9DrtSfpS782g==
@@ -6185,4 +6185,17 @@ yargs@^16.0.3, yargs@^16.1.0:
     require-directory "^2.1.1"
     string-width "^4.2.0"
     y18n "^5.0.2"
+    yargs-parser "^20.2.2"
+
+yargs@^16.1.1:
+  version "16.1.1"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.1.1.tgz#5a4a095bd1ca806b0a50d0c03611d38034d219a1"
+  integrity sha512-hAD1RcFP/wfgfxgMVswPE+z3tlPFtxG8/yWUrG2i17sTWGCGqWnxKcLTF4cUKDUK8fzokwsmO9H0TDkRbMHy8w==
+  dependencies:
+    cliui "^7.0.2"
+    escalade "^3.1.1"
+    get-caller-file "^2.0.5"
+    require-directory "^2.1.1"
+    string-width "^4.2.0"
+    y18n "^5.0.5"
     yargs-parser "^20.2.2"

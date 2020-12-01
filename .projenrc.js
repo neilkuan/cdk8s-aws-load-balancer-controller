@@ -5,11 +5,11 @@ const CDK8S_VERSION = '0.33.0';
 const CONSTRCUTS_VERSION = '3.2.7';
 const project = new ConstructLibrary({
   description: PROJECT_DESCRIPTION,
-  authorAddress: "guan840912@gmail.com",
-  authorName: "Neil Kuan",
+  authorAddress: 'guan840912@gmail.com',
+  authorName: 'Neil Kuan',
   //cdk8sVersion: "0.30.0",
-  name: "cdk8s-aws-load-balancer-controller",
-  repository: "https://github.com/guan840912/cdk8s-aws-load-balancer-controller.git",
+  name: 'cdk8s-aws-load-balancer-controller',
+  repository: 'https://github.com/guan840912/cdk8s-aws-load-balancer-controller.git',
   keywords: ['aws', 'cdk8s', 'aws-load-balancer-controller'],
   defaultReleaseBranch: 'main',
   releaseBranches: ['main'],
@@ -46,7 +46,7 @@ const project = new ConstructLibrary({
 });
 
 
-const common_exclude = ['cdk.out', 'cdk.context.json', 'image', 'yarn-error.log','coverage'];
+const common_exclude = ['cdk.out', 'cdk.context.json', 'image', 'yarn-error.log', 'coverage'];
 project.gitignore.exclude(...common_exclude);
 
 project.npmignore.exclude(...common_exclude);
