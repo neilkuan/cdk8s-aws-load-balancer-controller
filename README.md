@@ -1,6 +1,6 @@
 [![NPM version](https://badge.fury.io/js/cdk8s-aws-load-balancer-controller.svg)](https://badge.fury.io/js/cdk8s-aws-load-balancer-controller)
 [![PyPI version](https://badge.fury.io/py/cdk8s-aws-load-balancer-controller.svg)](https://badge.fury.io/py/cdk8s-aws-load-balancer-controller)
-![Release](https://github.com/guan840912/cdk8s-aws-load-balancer-controller/workflows/Release/badge.svg)
+![Release](https://github.com/neilkuan/cdk8s-aws-load-balancer-controller/workflows/Release/badge.svg)
 
 ![Downloads](https://img.shields.io/badge/-DOWNLOADS:-brightgreen?color=gray)
 ![npm](https://img.shields.io/npm/dt/cdk8s-aws-load-balancer-controller?label=npm&color=orange)
@@ -110,7 +110,7 @@ import * as eks from '@aws-cdk/aws-eks';
 
 ```
 
-Also can see [example repo](https://github.com/guan840912/cdk8s-cdk-example)
+Also can see [example repo](https://github.com/neilkuan/cdk8s-cdk-example)
 ## License
 
 Distributed under the [Apache 2.0](./LICENSE) license.

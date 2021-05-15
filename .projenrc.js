@@ -9,7 +9,7 @@ const project = new ConstructLibrary({
   authorName: 'Neil Kuan',
   //cdk8sVersion: "0.30.0",
   name: 'cdk8s-aws-load-balancer-controller',
-  repository: 'https://github.com/guan840912/cdk8s-aws-load-balancer-controller.git',
+  repository: 'https://github.com/neilkuan/cdk8s-aws-load-balancer-controller.git',
   keywords: ['aws', 'cdk8s', 'aws-load-balancer-controller'],
   defaultReleaseBranch: 'main',
   releaseBranches: ['main'],

@@ -3,7 +3,7 @@
   "description": "cdk8s-aws-load-balancer-controller is an CDK8S construct library that provides AWS Alb Load Balancer Controller Configure.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/guan840912/cdk8s-aws-load-balancer-controller.git"
+    "url": "https://github.com/neilkuan/cdk8s-aws-load-balancer-controller.git"
   },
   "scripts": {
     "clobber": "npx projen clobber",
@@ -81,7 +81,7 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "version": "1.0.3",
+  "version": "0.0.0",
   "jest": {
     "testMatch": [
       "**/__tests__/**/*.ts?(x)",
