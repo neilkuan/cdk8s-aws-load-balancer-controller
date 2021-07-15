@@ -2,22 +2,12 @@
   "dependencies": [
     {
       "name": "@aws-cdk/aws-iam",
-      "version": "^1.74.0",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-iam",
-      "version": "1.74.0",
+      "version": "1.113.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/core",
-      "version": "^1.74.0",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/core",
-      "version": "1.74.0",
+      "version": "1.113.0",
       "type": "build"
     },
     {
@@ -43,33 +33,13 @@
       "type": "build"
     },
     {
-      "name": "cdk8s-plus",
-      "version": "^0.33.0",
-      "type": "build"
-    },
-    {
-      "name": "cdk8s-plus",
-      "version": "0.33.0",
-      "type": "build"
-    },
-    {
       "name": "cdk8s",
-      "version": "^0.33.0",
-      "type": "build"
-    },
-    {
-      "name": "cdk8s",
-      "version": "0.33.0",
+      "version": "1.0.0-beta.10",
       "type": "build"
     },
     {
       "name": "constructs",
-      "version": "^3.2.7",
-      "type": "build"
-    },
-    {
-      "name": "constructs",
-      "version": "3.2.7",
+      "version": "3.3.97",
       "type": "build"
     },
     {
@@ -123,8 +93,12 @@
       "type": "build"
     },
     {
+      "name": "npm-check-updates",
+      "version": "^11",
+      "type": "build"
+    },
+    {
       "name": "projen",
-      "version": "^0.17.90",
       "type": "build"
     },
     {
@@ -152,27 +126,22 @@
     },
     {
       "name": "@aws-cdk/aws-iam",
-      "version": "^1.74.0",
+      "version": "1.113.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/core",
-      "version": "^1.74.0",
-      "type": "peer"
-    },
-    {
-      "name": "cdk8s-plus",
-      "version": "^0.33.0",
+      "version": "1.113.0",
       "type": "peer"
     },
     {
       "name": "cdk8s",
-      "version": "^0.33.0",
+      "version": "1.0.0-beta.10",
       "type": "peer"
     },
     {
       "name": "constructs",
-      "version": "^3.2.7",
+      "version": "3.3.97",
       "type": "peer"
     }
   ],

@@ -1,237 +1,363 @@
-# API Reference
+# API Reference <a name="API Reference"></a>
 
-**Classes**
+## Constructs <a name="Constructs"></a>
 
-Name|Description
-----|-----------
-[AlbIngressController](#cdk8s-aws-load-balancer-controller-albingresscontroller)|Generate alb-ingress-controller config yaml.
-[AwsLoadBalancePolicy](#cdk8s-aws-load-balancer-controller-awsloadbalancepolicy)|awsLoadBalancePolicy class ,help you add policy to your Iam Role for service account.
-[AwsLoadBalancerController](#cdk8s-aws-load-balancer-controller-awsloadbalancercontroller)|Generate aws-load-balancer-controller config yaml.
-[CertManager](#cdk8s-aws-load-balancer-controller-certmanager)|*No description*
-
-
-**Structs**
-
-Name|Description
-----|-----------
-[AlbIngressControllerOptions](#cdk8s-aws-load-balancer-controller-albingresscontrolleroptions)|*No description*
-[AwsLoadBalancerControllerOptions](#cdk8s-aws-load-balancer-controller-awsloadbalancercontrolleroptions)|*No description*
-[EnvVar](#cdk8s-aws-load-balancer-controller-envvar)|*No description*
-
-
-**Enums**
-
-Name|Description
-----|-----------
-[VersionsLists](#cdk8s-aws-load-balancer-controller-versionslists)|*No description*
-
-
-
-## class AlbIngressController  <a id="cdk8s-aws-load-balancer-controller-albingresscontroller"></a>
+### AlbIngressController <a name="cdk8s-aws-load-balancer-controller.AlbIngressController"></a>
 
 Generate alb-ingress-controller config yaml.
 
 see https://github.com/kubernetes-sigs/aws-alb-ingress-controller/blob/master/docs/examples
 
-__Implements__: [IConstruct](#constructs-iconstruct)
-__Extends__: [Construct](#constructs-construct)
+#### Initializer <a name="cdk8s-aws-load-balancer-controller.AlbIngressController.Initializer"></a>
 
-### Initializer
+```typescript
+import { AlbIngressController } from 'cdk8s-aws-load-balancer-controller'
 
-
-
-
-```ts
 new AlbIngressController(scope: Construct, id: string, options: AlbIngressControllerOptions)
 ```
 
-* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
-* **id** (<code>string</code>)  *No description*
-* **options** (<code>[AlbIngressControllerOptions](#cdk8s-aws-load-balancer-controller-albingresscontrolleroptions)</code>)  *No description*
-  * **clusterName** (<code>string</code>)  Kubernetes Cluster Name for alb-ingress-controller. 
-  * **args** (<code>Array<string></code>)  Another Args for alb-ingress-controller. __*Default*__: None
-  * **env** (<code>Array<[EnvVar](#cdk8s-aws-load-balancer-controller-envvar)></code>)  Another Args for alb-ingress-controller. __*Default*__: None
-  * **image** (<code>string</code>)  Default image for alb-ingress-controller. __*Default*__: docker.io/amazon/aws-alb-ingress-controller:v1.1.9
-  * **labels** (<code>Map<string, string></code>)  Extra labels to associate with resources. __*Default*__: none
-  * **namespace** (<code>string</code>)  Default Namespace for alb-ingress-controller. __*Default*__: kube-system
-  * **replicas** (<code>number</code>)  Replicas for alb-ingress-controller. __*Default*__: 1
-  * **serviceAccountName** (<code>string</code>)  Default Service Account Name for alb-ingress-controller. __*Default*__: alb-ingress-controller
+##### `scope`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressController.parameter.scope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressController.parameter.id"></a>
+
+- *Type:* `string`
+
+---
+
+##### `options`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressController.parameter.options"></a>
+
+- *Type:* [`cdk8s-aws-load-balancer-controller.AlbIngressControllerOptions`](#cdk8s-aws-load-balancer-controller.AlbIngressControllerOptions)
+
+---
 
 
 
-### Properties
+#### Properties <a name="Properties"></a>
+
+##### `clusterName`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressController.property.clusterName"></a>
+
+- *Type:* `string`
+
+Kubernetes Cluster Name for alb-ingress-controller.
+
+---
+
+##### `deploymentName`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressController.property.deploymentName"></a>
+
+- *Type:* `string`
+
+Kubernetes Deployment Name for alb-ingress-controller.
+
+---
+
+##### `namespace`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressController.property.namespace"></a>
+
+- *Type:* `string`
+- *Default:* kube-system
+
+Namespace for alb-ingress-controller.
+
+---
+
+##### `serviceAccountName`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressController.property.serviceAccountName"></a>
+
+- *Type:* `string`
+
+Service Account Name for alb-ingress-controller.
+
+---
 
 
-Name | Type | Description 
------|------|-------------
-**clusterName** | <code>string</code> | Kubernetes Cluster Name for alb-ingress-controller.
-**deploymentName** | <code>string</code> | Kubernetes Deployment Name for alb-ingress-controller.
-**namespace** | <code>string</code> | Namespace for alb-ingress-controller.
-**serviceAccountName** | <code>string</code> | Service Account Name for alb-ingress-controller.
-
-
-
-## class AwsLoadBalancePolicy  <a id="cdk8s-aws-load-balancer-controller-awsloadbalancepolicy"></a>
-
-awsLoadBalancePolicy class ,help you add policy to your Iam Role for service account.
-
-
-### Initializer
-
-
-
-
-```ts
-new AwsLoadBalancePolicy()
-```
-
-
-
-### Methods
-
-
-#### *static* addPolicy(version, role) <a id="cdk8s-aws-load-balancer-controller-awsloadbalancepolicy-addpolicy"></a>
-
-
-
-```ts
-static addPolicy(version: string, role: any): any
-```
-
-* **version** (<code>string</code>)  *No description*
-* **role** (<code>any</code>)  *No description*
-
-__Returns__:
-* <code>any</code>
-
-
-
-## class AwsLoadBalancerController  <a id="cdk8s-aws-load-balancer-controller-awsloadbalancercontroller"></a>
+### AwsLoadBalancerController <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController"></a>
 
 Generate aws-load-balancer-controller config yaml.
 
 see https://github.com/kubernetes-sigs/aws-aws-load-balancer-controller/blob/master/docs/install/v2_0_0_full.yaml
 
-__Implements__: [IConstruct](#constructs-iconstruct)
-__Extends__: [Construct](#constructs-construct)
+#### Initializer <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController.Initializer"></a>
 
-### Initializer
+```typescript
+import { AwsLoadBalancerController } from 'cdk8s-aws-load-balancer-controller'
 
-
-
-
-```ts
 new AwsLoadBalancerController(scope: Construct, id: string, options: AwsLoadBalancerControllerOptions)
 ```
 
-* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
-* **id** (<code>string</code>)  *No description*
-* **options** (<code>[AwsLoadBalancerControllerOptions](#cdk8s-aws-load-balancer-controller-awsloadbalancercontrolleroptions)</code>)  *No description*
-  * **clusterName** (<code>string</code>)  Kubernetes Cluster Name for aws-load-balancer-controller. 
-  * **createServiceAccount** (<code>boolean</code>)  service account for aws-load-balancer-controller. __*Default*__: true
+##### `scope`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController.parameter.scope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController.parameter.id"></a>
+
+- *Type:* `string`
+
+---
+
+##### `options`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController.parameter.options"></a>
+
+- *Type:* [`cdk8s-aws-load-balancer-controller.AwsLoadBalancerControllerOptions`](#cdk8s-aws-load-balancer-controller.AwsLoadBalancerControllerOptions)
+
+---
 
 
 
-### Properties
+#### Properties <a name="Properties"></a>
+
+##### `clusterName`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController.property.clusterName"></a>
+
+- *Type:* `string`
+
+Kubernetes Cluster Name for aws-load-balancer-controller.
+
+---
+
+##### `deploymentName`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController.property.deploymentName"></a>
+
+- *Type:* `string`
+
+Kubernetes Deployment Name for aws-load-balancer-controller.
+
+---
+
+##### `namespace`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController.property.namespace"></a>
+
+- *Type:* `string`
+- *Default:* default
+
+Namespace for aws-load-balancer-controller.
+
+---
+
+##### `serviceAccountName`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController.property.serviceAccountName"></a>
+
+- *Type:* `string`
+
+Service Account Name for aws-load-balancer-controller.
+
+---
 
 
-Name | Type | Description 
------|------|-------------
-**clusterName** | <code>string</code> | Kubernetes Cluster Name for aws-load-balancer-controller.
-**deploymentName** | <code>string</code> | Kubernetes Deployment Name for aws-load-balancer-controller.
-**namespace** | <code>string</code> | Namespace for aws-load-balancer-controller.
-**serviceAccountName** | <code>string</code> | Service Account Name for aws-load-balancer-controller.
+## Structs <a name="Structs"></a>
+
+### AlbIngressControllerOptions <a name="cdk8s-aws-load-balancer-controller.AlbIngressControllerOptions"></a>
+
+#### Initializer <a name="[object Object].Initializer"></a>
+
+```typescript
+import { AlbIngressControllerOptions } from 'cdk8s-aws-load-balancer-controller'
+
+const albIngressControllerOptions: AlbIngressControllerOptions = { ... }
+```
+
+##### `clusterName`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressControllerOptions.property.clusterName"></a>
+
+- *Type:* `string`
+- *Default:* None
+
+Kubernetes Cluster Name for alb-ingress-controller.
+
+---
+
+##### `args`<sup>Optional</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressControllerOptions.property.args"></a>
+
+- *Type:* `string`[]
+- *Default:* None
+
+Another Args for alb-ingress-controller.
+
+---
+
+##### `env`<sup>Optional</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressControllerOptions.property.env"></a>
+
+- *Type:* [`cdk8s-aws-load-balancer-controller.EnvVar`](#cdk8s-aws-load-balancer-controller.EnvVar)[]
+- *Default:* None
+
+Another Args for alb-ingress-controller.
+
+---
+
+##### `image`<sup>Optional</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressControllerOptions.property.image"></a>
+
+- *Type:* `string`
+- *Default:* docker.io/amazon/aws-alb-ingress-controller:v1.1.9
+
+Default image for alb-ingress-controller.
+
+---
+
+##### `labels`<sup>Optional</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressControllerOptions.property.labels"></a>
+
+- *Type:* {[ key: string ]: `string`}
+- *Default:* none
+
+Extra labels to associate with resources.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressControllerOptions.property.namespace"></a>
+
+- *Type:* `string`
+- *Default:* kube-system
+
+Default Namespace for alb-ingress-controller.
+
+---
+
+##### `replicas`<sup>Optional</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressControllerOptions.property.replicas"></a>
+
+- *Type:* `number`
+- *Default:* 1
+
+Replicas for alb-ingress-controller.
+
+---
+
+##### `serviceAccountName`<sup>Optional</sup> <a name="cdk8s-aws-load-balancer-controller.AlbIngressControllerOptions.property.serviceAccountName"></a>
+
+- *Type:* `string`
+- *Default:* alb-ingress-controller
+
+Default Service Account Name for alb-ingress-controller.
+
+---
+
+### AwsLoadBalancerControllerOptions <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerControllerOptions"></a>
+
+#### Initializer <a name="[object Object].Initializer"></a>
+
+```typescript
+import { AwsLoadBalancerControllerOptions } from 'cdk8s-aws-load-balancer-controller'
+
+const awsLoadBalancerControllerOptions: AwsLoadBalancerControllerOptions = { ... }
+```
+
+##### `clusterName`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerControllerOptions.property.clusterName"></a>
+
+- *Type:* `string`
+- *Default:* None
+
+Kubernetes Cluster Name for aws-load-balancer-controller.
+
+---
+
+##### `createServiceAccount`<sup>Optional</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerControllerOptions.property.createServiceAccount"></a>
+
+- *Type:* `boolean`
+- *Default:* true
+
+service account for aws-load-balancer-controller.
+
+---
+
+### EnvVar <a name="cdk8s-aws-load-balancer-controller.EnvVar"></a>
+
+#### Initializer <a name="[object Object].Initializer"></a>
+
+```typescript
+import { EnvVar } from 'cdk8s-aws-load-balancer-controller'
+
+const envVar: EnvVar = { ... }
+```
+
+##### `name`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.EnvVar.property.name"></a>
+
+- *Type:* `string`
+
+Name of the environment variable.
+
+Must be a C_IDENTIFIER.
+
+---
+
+##### `value`<sup>Optional</sup> <a name="cdk8s-aws-load-balancer-controller.EnvVar.property.value"></a>
+
+- *Type:* `string`
+- *Default:* .
+
+Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables.
+
+If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
+
+---
+
+## Classes <a name="Classes"></a>
+
+### AwsLoadBalancePolicy <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancePolicy"></a>
+
+awsLoadBalancePolicy class ,help you add policy to your Iam Role for service account.
+
+#### Initializer <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancePolicy.Initializer"></a>
+
+```typescript
+import { AwsLoadBalancePolicy } from 'cdk8s-aws-load-balancer-controller'
+
+new AwsLoadBalancePolicy()
+```
+
+
+#### Static Functions <a name="Static Functions"></a>
+
+##### `addPolicy` <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancePolicy.addPolicy"></a>
+
+```typescript
+import { AwsLoadBalancePolicy } from 'cdk8s-aws-load-balancer-controller'
+
+AwsLoadBalancePolicy.addPolicy(version: string, role: any)
+```
+
+###### `version`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancePolicy.parameter.version"></a>
+
+- *Type:* `string`
+
+---
+
+###### `role`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancePolicy.parameter.role"></a>
+
+- *Type:* `any`
+
+---
 
 
 
-## class CertManager  <a id="cdk8s-aws-load-balancer-controller-certmanager"></a>
+### CertManager <a name="cdk8s-aws-load-balancer-controller.CertManager"></a>
 
+#### Initializer <a name="cdk8s-aws-load-balancer-controller.CertManager.Initializer"></a>
 
+```typescript
+import { CertManager } from 'cdk8s-aws-load-balancer-controller'
 
-
-### Initializer
-
-
-
-
-```ts
 new CertManager()
 ```
 
 
+#### Static Functions <a name="Static Functions"></a>
 
-### Methods
+##### `certManagerConfig` <a name="cdk8s-aws-load-balancer-controller.CertManager.certManagerConfig"></a>
 
+```typescript
+import { CertManager } from 'cdk8s-aws-load-balancer-controller'
 
-#### *static* certManagerConfig() <a id="cdk8s-aws-load-balancer-controller-certmanager-certmanagerconfig"></a>
-
-
-
-```ts
-static certManagerConfig(): any
+CertManager.certManagerConfig()
 ```
 
 
-__Returns__:
-* <code>any</code>
 
 
+## Enums <a name="Enums"></a>
 
-## struct AlbIngressControllerOptions  <a id="cdk8s-aws-load-balancer-controller-albingresscontrolleroptions"></a>
+### VersionsLists <a name="VersionsLists"></a>
 
+#### `AWS_LOAD_BALANCER_CONTROLLER_POLICY_V1` <a name="cdk8s-aws-load-balancer-controller.VersionsLists.AWS_LOAD_BALANCER_CONTROLLER_POLICY_V1"></a>
 
-
-
-
-
-Name | Type | Description 
------|------|-------------
-**clusterName** | <code>string</code> | Kubernetes Cluster Name for alb-ingress-controller.
-**args**? | <code>Array<string></code> | Another Args for alb-ingress-controller.<br/>__*Default*__: None
-**env**? | <code>Array<[EnvVar](#cdk8s-aws-load-balancer-controller-envvar)></code> | Another Args for alb-ingress-controller.<br/>__*Default*__: None
-**image**? | <code>string</code> | Default image for alb-ingress-controller.<br/>__*Default*__: docker.io/amazon/aws-alb-ingress-controller:v1.1.9
-**labels**? | <code>Map<string, string></code> | Extra labels to associate with resources.<br/>__*Default*__: none
-**namespace**? | <code>string</code> | Default Namespace for alb-ingress-controller.<br/>__*Default*__: kube-system
-**replicas**? | <code>number</code> | Replicas for alb-ingress-controller.<br/>__*Default*__: 1
-**serviceAccountName**? | <code>string</code> | Default Service Account Name for alb-ingress-controller.<br/>__*Default*__: alb-ingress-controller
+---
 
 
+#### `AWS_LOAD_BALANCER_CONTROLLER_POLICY_V2` <a name="cdk8s-aws-load-balancer-controller.VersionsLists.AWS_LOAD_BALANCER_CONTROLLER_POLICY_V2"></a>
 
-## struct AwsLoadBalancerControllerOptions  <a id="cdk8s-aws-load-balancer-controller-awsloadbalancercontrolleroptions"></a>
-
-
-
-
-
-
-Name | Type | Description 
------|------|-------------
-**clusterName** | <code>string</code> | Kubernetes Cluster Name for aws-load-balancer-controller.
-**createServiceAccount**? | <code>boolean</code> | service account for aws-load-balancer-controller.<br/>__*Default*__: true
-
-
-
-## struct EnvVar  <a id="cdk8s-aws-load-balancer-controller-envvar"></a>
-
-
-
-
-
-
-Name | Type | Description 
------|------|-------------
-**name** | <code>string</code> | Name of the environment variable.
-**value**? | <code>string</code> | Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables.<br/>__*Default*__: .
-
-
-
-## enum VersionsLists  <a id="cdk8s-aws-load-balancer-controller-versionslists"></a>
-
-
-
-Name | Description
------|-----
-**AWS_LOAD_BALANCER_CONTROLLER_POLICY_V1** |
-**AWS_LOAD_BALANCER_CONTROLLER_POLICY_V2** |
-
+---
 

@@ -307,7 +307,7 @@ export class AwsLoadBalancePolicy {
       return role;
     } if (version == 'v2') {
       awsLoadBalancerControllerPolicyV2.forEach(element => {
-        role.addToPolicy(iam.PolicyStatement.fromJson(element));
+        role.addToPrincipalPolicy(iam.PolicyStatement.fromJson(element));
       });
       return role;
     }
