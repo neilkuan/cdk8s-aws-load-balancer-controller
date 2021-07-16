@@ -13,7 +13,7 @@ const project = new ConstructLibrary({
   defaultReleaseBranch: 'main',
   catalog: {
     twitter: 'neil_kuan',
-    announce: true,
+    announce: false,
   },
   python: {
     distName: 'cdk8s-aws-load-balancer-controller',

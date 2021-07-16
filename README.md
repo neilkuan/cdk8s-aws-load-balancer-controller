@@ -13,6 +13,12 @@ This project was formerly known as "CDK AWS ALB Ingress Controller", I just rena
 
 Basic implementation of a [aws load balancer controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller) construct for cdk8s. Contributions are welcome!
 
+## Before Usage need to install helm
+```bash
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+```
 
 ## Usage
 ```bash
@@ -70,6 +76,34 @@ new MyChart(app, 'testcdk8s');
 app.synth();
 ```
 
+### AWS Load Balance Controller V2 specific Namespace.
+```ts
+import { App, Chart } from 'cdk8s';
+import { AwsLoadBalancerController } from 'cdk8s-aws-load-balancer-controller';
+import * as constructs from 'constructs';
+
+export interface MyChartProps {
+  readonly clusterName: string;
+}
+
+export class MyChart extends Chart {
+  readonly deploymentName: string;
+  readonly deploymentNameSpace: string;
+  constructor(scope: Construct, name: string, props: MyChartProps) {
+    super(scope, name);
+    const alb = new AwsLoadBalancerController(this, 'alb', {
+      clusterName: props.clusterName,
+      createServiceAccount: false,
+      namespace: 'kube-system',
+    });
+    this.deploymentName = alb.deploymentName;
+    this.deploymentNameSpace = alb.namespace;
+  }
+}
+const app = new App();
+new MyChart(app, 'testcdk8s');
+app.synth();
+```
 
 # Featrue For Add IAM Policy.
 - For IRSA add IAM Policy version 1. 
@@ -110,7 +144,8 @@ import * as eks from '@aws-cdk/aws-eks';
 
 ```
 
-Also can see [example repo](https://github.com/neilkuan/cdk8s-cdk-example)
+Also can see [example repo 1](https://github.com/neilkuan/cdk8s-cdk-example)
+or [example repo 2](https://github.com/neilkuan/eks-mgng-tagging-name.git) work with aws cdk.
 ## License
 
 Distributed under the [Apache 2.0](./LICENSE) license.
