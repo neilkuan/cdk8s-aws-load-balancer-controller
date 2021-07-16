@@ -52,7 +52,9 @@ const project = new ConstructLibrary({
     id: 'install_helm',
     run: `curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 chmod 700 get_helm.sh
-./get_helm.sh`,
+./get_helm.sh
+helm repo add eks https://aws.github.io/eks-charts
+helm repo update`,
   }],
 });
 
