@@ -1,4 +1,4 @@
-const { ConstructLibrary } = require('projen');
+const { ConstructLibrary, DependenciesUpgradeMechanism } = require('projen');
 const PROJECT_DESCRIPTION = 'cdk8s-aws-load-balancer-controller is an CDK8S construct library that provides AWS Alb Load Balancer Controller Configure.';
 const CDK_VERSION = '1.113.0';
 const CDK8S_VERSION = '1.0.0-beta.10';
@@ -37,6 +37,25 @@ const project = new ConstructLibrary({
     '@types/js-yaml@^3.12.5',
     'js-yaml@^3.14.0',
   ],
+  depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
+    workflowOptions: {
+      labels: ['auto-approve'],
+      secret: 'AUTOMATION_GITHUB_TOKEN',
+    },
+  }),
+  autoApproveOptions: {
+    secret: 'GITHUB_TOKEN',
+    allowedUsernames: ['neilkuan'],
+  },
+  releaseWorkflowSetupSteps: [{
+    name: 'Install Helm',
+    id: 'install_helm',
+    run: `curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+    sudo apt-get install apt-transport-https --yes
+    echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+    sudo apt-get update
+    sudo apt-get install helm`,
+  }],
 });
 
 const common_exclude = ['cdk.out', 'cdk.context.json', 'image', 'yarn-error.log', 'coverage'];

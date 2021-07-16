@@ -24,6 +24,14 @@ jobs:
           git config user.email "github-actions@github.com"
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
+      - name: Install Helm
+        id: install_helm
+        run: >-
+          curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+              sudo apt-get install apt-transport-https --yes
+              echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+              sudo apt-get update
+              sudo apt-get install helm
       - name: release
         run: npx projen release
       - name: Check for new commits

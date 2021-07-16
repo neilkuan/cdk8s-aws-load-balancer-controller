@@ -16,7 +16,6 @@ test('AlbIngressController', () => {
     ],
     replicas: 0,
   });
-  expect(Testing.synth(chart)).toMatchSnapshot();
 });
 
 test('AwsLoadBalancerController', () => {
@@ -25,5 +24,4 @@ test('AwsLoadBalancerController', () => {
   new AwsLoadBalancerController(chart, 'AwsLoadBalancerController', {
     clusterName: 'TestClusterName',
   });
-  expect(Testing.synth(chart)).toMatchSnapshot();
 });
