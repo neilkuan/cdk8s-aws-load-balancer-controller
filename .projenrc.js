@@ -50,11 +50,11 @@ const project = new ConstructLibrary({
   releaseWorkflowSetupSteps: [{
     name: 'Install Helm',
     id: 'install_helm',
-    run: `curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
-    sudo apt-get install apt-transport-https --yes
-    echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
-    sudo apt-get update
-    sudo apt-get install helm`,
+    run: `curl https://baltocdn.com/helm/signing.asc | apt-key add -
+    apt-get install apt-transport-https --yes
+    echo "deb https://baltocdn.com/helm/stable/debian/ all main" | tee /etc/apt/sources.list.d/helm-stable-debian.list
+    apt-get update -y
+    apt-get install helm -y`,
   }],
 });
 
