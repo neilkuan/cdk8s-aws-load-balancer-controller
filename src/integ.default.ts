@@ -20,6 +20,8 @@ export class MyChart extends Chart {
     });
     new AwsLoadBalancerController(this, 'AwsLoadController', {
       clusterName: 'TestClusterName',
+      chartVersion: '1.2.3',
+      namespace: 'kube-system',
     });
   }
 }

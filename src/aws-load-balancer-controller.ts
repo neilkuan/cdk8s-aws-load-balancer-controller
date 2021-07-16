@@ -15,6 +15,18 @@ export interface AwsLoadBalancerControllerOptions {
    * @default - true
    */
   readonly createServiceAccount?: boolean;
+
+  /**
+   * Namespace for aws-load-balancer-controller.
+   * @default - default
+   */
+  readonly namespace?: string;
+
+  /**
+   * Helm Chart Version for aws-load-balancer-controller.
+   * @default - latest Helm Chart version.
+   */
+  readonly chartVersion?: string;
 }
 /**
  * Generate aws-load-balancer-controller config yaml.
@@ -37,13 +49,19 @@ export class AwsLoadBalancerController extends Construct {
    * Namespace for aws-load-balancer-controller.
    * @default - default
    */
-  public readonly namespace: string ;
+  public readonly namespace: string;
+  /**
+   * Helm Chart Version for aws-load-balancer-controller.
+   * @default - latest Helm Chart version.
+   */
+  public readonly chartVersion: string;
   constructor(scope: Construct, id: string, options: AwsLoadBalancerControllerOptions) {
     super(scope, id);
     this.serviceAccountName = 'aws-load-balancer-controller';
     this.deploymentName = 'aws-load-balancer-controller';
     this.clusterName = options.clusterName;
-    this.namespace = 'default';
+    this.namespace = options.namespace ?? 'default';
+    this.chartVersion = options.chartVersion ?? '';
     // ingressclassparams elbv2 k8s aws CRD.
     new cdk8s.ApiObject(this, 'aws-load-balancer-controller-ingclassparams-crd', {
       apiVersion: 'apiextensions.k8s.io/v1',
@@ -694,6 +712,7 @@ export class AwsLoadBalancerController extends Construct {
     new cdk8s.Helm(this, 'helmawsLoadBalancerController', {
       chart: 'eks/aws-load-balancer-controller',
       releaseName: 'aws-load-balancer-controller',
+      helmFlags: ['--namespace', this.namespace, '--version', this.chartVersion],
       values: {
         clusterName: options.clusterName,
         serviceAccount: {

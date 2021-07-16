@@ -108,6 +108,15 @@ new AwsLoadBalancerController(scope: Construct, id: string, options: AwsLoadBala
 
 #### Properties <a name="Properties"></a>
 
+##### `chartVersion`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController.property.chartVersion"></a>
+
+- *Type:* `string`
+- *Default:* latest Helm Chart version.
+
+Helm Chart Version for aws-load-balancer-controller.
+
+---
+
 ##### `clusterName`<sup>Required</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController.property.clusterName"></a>
 
 - *Type:* `string`
@@ -245,12 +254,30 @@ Kubernetes Cluster Name for aws-load-balancer-controller.
 
 ---
 
+##### `chartVersion`<sup>Optional</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerControllerOptions.property.chartVersion"></a>
+
+- *Type:* `string`
+- *Default:* latest Helm Chart version.
+
+Helm Chart Version for aws-load-balancer-controller.
+
+---
+
 ##### `createServiceAccount`<sup>Optional</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerControllerOptions.property.createServiceAccount"></a>
 
 - *Type:* `boolean`
 - *Default:* true
 
 service account for aws-load-balancer-controller.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerControllerOptions.property.namespace"></a>
+
+- *Type:* `string`
+- *Default:* default
+
+Namespace for aws-load-balancer-controller.
 
 ---
 

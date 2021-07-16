@@ -43,7 +43,6 @@ app.synth();
 ```
 
 ### AWS Load Balance Controller V2
-#### only support install in default namespace now!!!
 ```ts
 import { App, Chart } from 'cdk8s';
 import { AwsLoadBalancerController } from 'cdk8s-aws-load-balancer-controller';
