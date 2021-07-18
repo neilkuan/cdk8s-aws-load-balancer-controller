@@ -44,7 +44,7 @@
     "@typescript-eslint/parser": "^4.28.3",
     "cdk8s": "1.0.0-beta.10",
     "constructs": "3.3.97",
-    "eslint": "^7.30.0",
+    "eslint": "^7.31.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-import": "^2.23.4",
