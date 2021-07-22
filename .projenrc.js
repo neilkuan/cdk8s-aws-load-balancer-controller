@@ -1,4 +1,5 @@
-const { ConstructLibrary, DependenciesUpgradeMechanism } = require('projen');
+const { ConstructLibrary, DependenciesUpgradeMechanism, ScheduleInterval } = require('projen');
+const { DependabotScheduleInterval } = require('projen/lib/github');
 const PROJECT_DESCRIPTION = 'cdk8s-aws-load-balancer-controller is an CDK8S construct library that provides AWS Alb Load Balancer Controller Configure.';
 const CDK_VERSION = '1.113.0';
 const CDK8S_VERSION = '1.0.0-beta.10';
@@ -38,15 +39,8 @@ const project = new ConstructLibrary({
     'js-yaml@^3.14.0',
   ],
   depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
-    workflowOptions: {
-      labels: ['auto-approve'],
-      secret: 'AUTOMATION_GITHUB_TOKEN',
-    },
+    workflow: false,
   }),
-  autoApproveOptions: {
-    secret: 'GITHUB_TOKEN',
-    allowedUsernames: ['neilkuan'],
-  },
   workflowBootstrapSteps: [
     {
       name: 'Install Helm',
