@@ -8,7 +8,7 @@ Generate alb-ingress-controller config yaml.
 
 see https://github.com/kubernetes-sigs/aws-alb-ingress-controller/blob/master/docs/examples
 
-#### Initializer <a name="cdk8s-aws-load-balancer-controller.AlbIngressController.Initializer"></a>
+#### Initializers <a name="cdk8s-aws-load-balancer-controller.AlbIngressController.Initializer"></a>
 
 ```typescript
 import { AlbIngressController } from 'cdk8s-aws-load-balancer-controller'
@@ -78,7 +78,7 @@ Generate aws-load-balancer-controller config yaml.
 
 see https://github.com/kubernetes-sigs/aws-aws-load-balancer-controller/blob/master/docs/install/v2_0_0_full.yaml
 
-#### Initializer <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController.Initializer"></a>
+#### Initializers <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancerController.Initializer"></a>
 
 ```typescript
 import { AwsLoadBalancerController } from 'cdk8s-aws-load-balancer-controller'
@@ -318,7 +318,7 @@ If a variable cannot be resolved, the reference in the input string will be unch
 
 awsLoadBalancePolicy class ,help you add policy to your Iam Role for service account.
 
-#### Initializer <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancePolicy.Initializer"></a>
+#### Initializers <a name="cdk8s-aws-load-balancer-controller.AwsLoadBalancePolicy.Initializer"></a>
 
 ```typescript
 import { AwsLoadBalancePolicy } from 'cdk8s-aws-load-balancer-controller'
@@ -353,7 +353,7 @@ AwsLoadBalancePolicy.addPolicy(version: string, role: any)
 
 ### CertManager <a name="cdk8s-aws-load-balancer-controller.CertManager"></a>
 
-#### Initializer <a name="cdk8s-aws-load-balancer-controller.CertManager.Initializer"></a>
+#### Initializers <a name="cdk8s-aws-load-balancer-controller.CertManager.Initializer"></a>
 
 ```typescript
 import { CertManager } from 'cdk8s-aws-load-balancer-controller'

@@ -1,9 +1,9 @@
 const { ConstructLibrary, DependenciesUpgradeMechanism, ScheduleInterval } = require('projen');
 const { DependabotScheduleInterval } = require('projen/lib/github');
 const PROJECT_DESCRIPTION = 'cdk8s-aws-load-balancer-controller is an CDK8S construct library that provides AWS Alb Load Balancer Controller Configure.';
-const CDK_VERSION = '1.113.0';
+const CDK_VERSION = '^1.113.0';
 const CDK8S_VERSION = '1.0.0-beta.10';
-const CONSTRCUTS_VERSION = '3.3.100';
+const CONSTRCUTS_VERSION = '^3.3.147';
 const project = new ConstructLibrary({
   description: PROJECT_DESCRIPTION,
   authorAddress: 'guan840912@gmail.com',
@@ -29,10 +29,10 @@ const project = new ConstructLibrary({
   devDeps: [
     '@types/js-yaml@^3.12.5',
     'js-yaml@^3.14.0',
-    `cdk8s@${CDK8S_VERSION}`,
-    `constructs@${CONSTRCUTS_VERSION}`,
-    `@aws-cdk/aws-iam@${CDK_VERSION}`,
-    `@aws-cdk/core@${CDK_VERSION}`,
+    // `cdk8s@${CDK8S_VERSION}`,
+    // `constructs@${CONSTRCUTS_VERSION}`,
+    // `@aws-cdk/aws-iam@${CDK_VERSION}`,
+    // `@aws-cdk/core@${CDK_VERSION}`,
   ],
   bundledDeps: [
     '@types/js-yaml@^3.12.5',

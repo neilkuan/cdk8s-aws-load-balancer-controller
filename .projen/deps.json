@@ -39,7 +39,7 @@
     },
     {
       "name": "constructs",
-      "version": "3.3.100",
+      "version": "3.3.147",
       "type": "build"
     },
     {
@@ -126,12 +126,12 @@
     },
     {
       "name": "@aws-cdk/aws-iam",
-      "version": "1.113.0",
+      "version": "^1.113.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/core",
-      "version": "1.113.0",
+      "version": "^1.113.0",
       "type": "peer"
     },
     {
@@ -141,7 +141,7 @@
     },
     {
       "name": "constructs",
-      "version": "3.3.100",
+      "version": "^3.3.147",
       "type": "peer"
     }
   ],
