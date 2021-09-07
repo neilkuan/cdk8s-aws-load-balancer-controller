@@ -16,6 +16,7 @@ const project = new ConstructLibrary({
     twitter: 'neil_kuan',
     announce: false,
   },
+  minNodeVersion: '14.15.0',
   python: {
     distName: 'cdk8s-aws-load-balancer-controller',
     module: 'cdk8s_aws_load_balancer_controller',
